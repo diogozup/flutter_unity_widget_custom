@@ -1,4 +1,4 @@
-package com.xraph.plugin.flutter_unity_widget
+package com.xraph.plugin.flutter_unity_widget_custom
 
 import android.content.Intent
 import android.os.Bundle

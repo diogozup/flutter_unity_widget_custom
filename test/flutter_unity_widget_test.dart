@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_unity_widget/src/io/device_method.dart';
-import 'package:flutter_unity_widget/src/io/io.dart';
-import 'package:flutter_unity_widget/src/io/unity_widget.dart';
-import 'package:flutter_unity_widget/src/io/unity_widget_platform.dart';
+import 'package:flutter_unity_widget_custom/src/io/device_method.dart';
+import 'package:flutter_unity_widget_custom/src/io/io.dart';
+import 'package:flutter_unity_widget_custom/src/io/unity_widget.dart';
+import 'package:flutter_unity_widget_custom/src/io/unity_widget_platform.dart';
 
 import 'fake_unity_widget_controllers.dart';
 
 Future<void> main() async {
   const MethodChannel channel = MethodChannel('plugin.xraph.com/unity_view');
-  final FakePlatformViewsController fakePlatformViewsController =
-      FakePlatformViewsController();
+  final FakePlatformViewsController fakePlatformViewsController = FakePlatformViewsController();
 
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUpAll(() {
-    SystemChannels.platform_views.setMockMethodCallHandler(
-        fakePlatformViewsController.fakePlatformViewsMethodHandler);
+    SystemChannels.platform_views.setMockMethodCallHandler(fakePlatformViewsController.fakePlatformViewsMethodHandler);
   });
 
   setUp(() {
@@ -39,15 +37,13 @@ Future<void> main() async {
       ),
     );
 
-    final FakePlatformUnityWidget platformUnityWidget =
-        fakePlatformViewsController.lastCreatedView!;
+    final FakePlatformUnityWidget platformUnityWidget = fakePlatformViewsController.lastCreatedView!;
 
     expect(platformUnityWidget.unityReady, true);
     expect(find.byType(UnityWidget), findsOneWidget);
   });
 
-  testWidgets('Unity widget pause called successfully',
-      (WidgetTester tester) async {
+  testWidgets('Unity widget pause called successfully', (WidgetTester tester) async {
     await tester.pumpWidget(
       Directionality(
         textDirection: TextDirection.ltr,
@@ -58,8 +54,7 @@ Future<void> main() async {
       ),
     );
 
-    final FakePlatformUnityWidget platformUnityWidget =
-        fakePlatformViewsController.lastCreatedView!;
+    final FakePlatformUnityWidget platformUnityWidget = fakePlatformViewsController.lastCreatedView!;
 
     platformUnityWidget.pause();
     expect(platformUnityWidget.unityPaused, true);
@@ -85,8 +80,7 @@ Future<void> main() async {
   );
 
   testWidgets('Use PlatformViewLink on Android', (WidgetTester tester) async {
-    final MethodChannelUnityWidget platform =
-        UnityWidgetPlatform.instance as MethodChannelUnityWidget;
+    final MethodChannelUnityWidget platform = UnityWidgetPlatform.instance as MethodChannelUnityWidget;
     platform.useAndroidViewSurface = true;
 
     await tester.pumpWidget(

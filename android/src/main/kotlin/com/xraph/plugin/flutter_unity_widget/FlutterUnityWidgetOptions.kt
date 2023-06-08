@@ -1,4 +1,4 @@
-package com.xraph.plugin.flutter_unity_widget
+package com.xraph.plugin.flutter_unity_widget_custom
 
 class FlutterUnityWidgetOptions {
     var fullscreenEnabled: Boolean = false

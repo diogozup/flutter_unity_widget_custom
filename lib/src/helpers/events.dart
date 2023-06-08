@@ -1,4 +1,4 @@
-import 'package:flutter_unity_widget_custom/src/helpers/types.dart';
+import '../../flutter_unity_widget_custom.dart';
 
 class UnityEvent<T> {
   /// The ID of the Unity this event is associated to.

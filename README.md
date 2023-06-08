@@ -1,4 +1,4 @@
-# flutter_unity_widget
+# flutter_unity_widget_custom
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 
 [![version][version-badge]][package]
@@ -39,20 +39,20 @@ First depend on the library by adding this to your packages `pubspec.yaml`:
  -  Flutter 3.0.0
 ```yaml
 dependencies:
-  flutter_unity_widget: ^2022.2.0
+  flutter_unity_widget_custom: ^2022.2.0
 ```
 
 
  -  Pre Flutter 3.0.0 (This version will gradually be deprecated)
 ```yaml
 dependencies:
-  flutter_unity_widget: ^2022.1.0+7
+  flutter_unity_widget_custom: ^2022.1.0+7
 ```
 
 Now inside your Dart code you can import it.
 
 ```dart
-import 'package:flutter_unity_widget/flutter_unity_widget.dart';
+import 'package:flutter_unity_widget_custom/flutter_unity_widget_custom.dart';
 ```
 
 ## Preview
@@ -185,14 +185,14 @@ option (will export to *ios/unityLibraryCustom*).
 
 ```diff
 +    <activity
-+        android:name="com.xraph.plugin.flutter_unity_widget.OverrideUnityActivity"
++        android:name="com.xraph.plugin.flutter_unity_widget_custom.OverrideUnityActivity"
 +        android:theme="@style/UnityThemeSelector"
 +        android:screenOrientation="fullSensor"
 +        android:launchMode="singleTask"
 +        android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density"
 +        android:hardwareAccelerated="false"
 +        android:process=":Unity">
-+    <meta-data android:name="com.xraph.plugin.flutter_unity_widget.OverrideUnityActivity" android:value="true" />
++    <meta-data android:name="com.xraph.plugin.flutter_unity_widget_custom.OverrideUnityActivity" android:value="true" />
 +    </activity>
 ```
 
@@ -216,7 +216,7 @@ option (will export to *ios/unityLibraryCustom*).
 ```diff
      import UIKit
      import Flutter
-+    import flutter_unity_widget
++    import flutter_unity_widget_custom
 
      @UIApplicationMain
      @objc class AppDelegate: FlutterAppDelegate {
@@ -234,7 +234,7 @@ option (will export to *ios/unityLibraryCustom*).
 
    6.3.2. If you're using Objective-C, open the *ios/Runner/main.m* file and change the following:
 ```diff
-+    #import "flutter_unity_widget.swift.h"
++    #import "flutter_unity_widget_custom.swift.h"
 
      int main(int argc, char * argv[]) {
           @autoreleasepool {
@@ -376,7 +376,7 @@ InvalidOperationException: The build target does not support build appending.
 
 ```
 minSdkVersion XX cannot be smaller than version 19 declared in library 
-    \ [:flutter_unity_widget] .../AndroidManifest.xml as the library might be using 
+    \ [:flutter_unity_widget_custom] .../AndroidManifest.xml as the library might be using 
     \ APIs not available in XX
 ```
 
@@ -439,7 +439,7 @@ Unable to find a matching variant of project :unityLibraryCustom:
 ```dart
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_unity_widget/flutter_unity_widget.dart';
+import 'package:flutter_unity_widget_custom/flutter_unity_widget_custom.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -493,7 +493,7 @@ class _UnityDemoScreenState extends State<UnityDemoScreen>{
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:flutter_unity_widget/flutter_unity_widget.dart';
+import 'package:flutter_unity_widget_custom/flutter_unity_widget_custom.dart';
 
 void main() => runApp(MyApp());
 
@@ -718,8 +718,8 @@ Support this project with your organization. Your donations will be used to help
 <a href="https://opencollective.com/ultimate-backend/sponsor/8/website"><img src="https://opencollective.com/ultimate-backend/sponsor/8/avatar.svg"></a>
 <a href="https://opencollective.com/ultimate-backend/sponsor/9/website"><img src="https://opencollective.com/ultimate-backend/sponsor/9/avatar.svg"></a>
 
-[version-badge]: https://img.shields.io/pub/v/flutter_unity_widget.svg?style=flat-square
-[package]: https://pub.dartlang.org/packages/flutter_unity_widget/
+[version-badge]: https://img.shields.io/pub/v/flutter_unity_widget_custom.svg?style=flat-square
+[package]: https://pub.dartlang.org/packages/flutter_unity_widget_custom/
 [license-badge]: https://img.shields.io/github/license/juicycleff/flutter-unity-view-widget.svg?style=flat-square
 [license]: https://github.com/juicycleff/flutter-unity-view-widget/blob/master/LICENSE
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square

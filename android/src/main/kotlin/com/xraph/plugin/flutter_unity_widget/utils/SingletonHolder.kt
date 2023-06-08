@@ -1,4 +1,4 @@
-package com.xraph.plugin.flutter_unity_widget.utils
+package com.xraph.plugin.flutter_unity_widget_custom.utils
 
 open class SingletonHolder<out T: Any, in A>(creator: (A) -> T) {
     private var creator: ((A) -> T)? = creator

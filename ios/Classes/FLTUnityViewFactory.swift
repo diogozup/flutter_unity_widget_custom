@@ -1,6 +1,6 @@
 //
 //  FLTUnityViewFactory.swift
-//  flutter_unity_widget
+//  flutter_unity_widget_custom
 //
 //  Created by Rex Raphael on 30/01/2021.
 //

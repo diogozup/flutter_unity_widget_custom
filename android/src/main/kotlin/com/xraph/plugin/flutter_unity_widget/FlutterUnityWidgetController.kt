@@ -1,4 +1,4 @@
-package com.xraph.plugin.flutter_unity_widget
+package com.xraph.plugin.flutter_unity_widget_custom
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -299,7 +299,7 @@ class FlutterUnityWidgetController(
             }
         } catch (e: Exception) {
             if (methodChannelResult != null) {
-                methodChannelResult!!.error("FLUTTER_UNITY_WIDGET", e.message, e)
+                methodChannelResult!!.error("flutter_unity_widget_custom", e.message, e)
                 methodChannelResult!!.success(false)
                 methodChannelResult = null
             }

@@ -1,4 +1,4 @@
-name: flutter_unity_widget
+name: flutter_unity_widget_custom
 description: Flutter Unity 3D widget for embedding Unity game scenes in flutter. This library now supports Unity as a Library.
 version: 2022.2.0
 #authors:
@@ -39,7 +39,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.xraph.plugin.flutter_unity_widget
+        package: com.xraph.plugin.flutter_unity_widget_custom
         pluginClass: FlutterUnityWidgetPlugin
       ios:
         pluginClass: FlutterUnityWidgetPlugin
@@ -47,4 +47,4 @@ flutter:
         pluginClass: FlutterUnityWidgetPlugin
       web:
         pluginClass: UnityWidgetController
-        fileName: flutter_unity_widget.dart
+        fileName: flutter_unity_widget_custom.dart

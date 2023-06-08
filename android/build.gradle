@@ -1,4 +1,4 @@
-group 'com.xraph.plugin.flutter_unity_widget'
+group 'com.xraph.plugin.flutter_unity_widget_custom'
 version '4.0-SNAPSHOT'
 
 buildscript {
