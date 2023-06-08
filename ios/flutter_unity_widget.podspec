@@ -24,7 +24,7 @@ A new Flutter plugin.
   s.swift_version = '5.0'
 
   s.xcconfig = {
-     'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/../UnityLibrary" "${PODS_ROOT}/../.symlinks/flutter/ios-release" "${PODS_CONFIGURATION_BUILD_DIR}"',
+     'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/../unityLibraryCustom" "${PODS_ROOT}/../.symlinks/flutter/ios-release" "${PODS_CONFIGURATION_BUILD_DIR}"',
      'OTHER_LDFLAGS' => '$(inherited) -framework UnityFramework ${PODS_LIBRARIES}'
   }
 end

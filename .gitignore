@@ -33,7 +33,7 @@ android/.idea/
 .pub/
 build/
 
-android/UnityLibrary/
+android/unityLibraryCustom/
 
 #example/
 example/unity/DemoApp/Builds/
@@ -84,6 +84,6 @@ example/unity/DemoApp/Temp/
 !/unitypackages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
 example/unity/DemoApp/test
-example/ios/UnityLibrary
-example/android/unityLibrary
-example/web/unityLibrary
+example/ios/unityLibraryCustom
+example/android/unityLibraryCustom
+example/web/unityLibraryCustom

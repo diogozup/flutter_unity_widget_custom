@@ -1,4 +1,4 @@
-import 'package:flutter_unity_widget/src/helpers/types.dart';
+import 'package:flutter_unity_widget_custom/src/helpers/types.dart';
 
 class UnityEvent<T> {
   /// The ID of the Unity this event is associated to.
@@ -15,8 +15,7 @@ class UnityEvent<T> {
 }
 
 class UnitySceneLoadedEvent extends UnityEvent<SceneLoaded?> {
-  UnitySceneLoadedEvent(int unityId, SceneLoaded? value)
-      : super(unityId, value);
+  UnitySceneLoadedEvent(int unityId, SceneLoaded? value) : super(unityId, value);
 }
 
 class UnityLoadedEvent extends UnityEvent<void> {

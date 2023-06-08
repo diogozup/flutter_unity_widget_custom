@@ -127,8 +127,8 @@ That's it! You don't need to tell your Android App in your `app/build.gradle` th
 4. Go to **Assets > Import Package > Custom Package** and select the 
     *FlutterUnityPackage.unitypackage* file. Click on **Import**.
 
-5. After importing, click on **Flutter** and select the **Export Android Debug** or **Export Android Release** option (will export to *android/unityLibrary*) or the **Export iOS Debug** or **Export iOS Release**
-option (will export to *ios/UnityLibrary*).
+5. After importing, click on **Flutter** and select the **Export Android Debug** or **Export Android Release** option (will export to *android/unityLibraryCustom*) or the **Export iOS Debug** or **Export iOS Release**
+option (will export to *ios/unityLibraryCustom*).
 
 > Do not use **Flutter > Export _Platform_ plugin** as it was specially added to work with [`flutter_unity_cli`](https://github.com/juicycleff/flutter_unity_cli) for larger projects.
 
@@ -142,15 +142,15 @@ option (will export to *ios/UnityLibrary*).
 6.1. Open the *android/settings.gradle* file and change the following:
 
 ```diff
-+    include ":unityLibrary"
-+    project(":unityLibrary").projectDir = file("./unityLibrary")
++    include ":unityLibraryCustom"
++    project(":unityLibraryCustom").projectDir = file("./unityLibraryCustom")
 ```
 
 6.2. Open the *android/app/build.gradle* file and change the following:
 
 ```diff
      dependencies {
-+        implementation project(':unityLibrary')
++        implementation project(':unityLibraryCustom')
      }
 ```
 
@@ -175,7 +175,7 @@ option (will export to *ios/UnityLibrary*).
 
 > The code above use the `debug` signConfig for all buildTypes, which can be changed as you well if you need specify signConfig.
 
-6.4. If you use `minifyEnabled true` in your *android/app/build.gradle* file, open the *android/unityLibrary/proguard-unity.txt* and change the following:
+6.4. If you use `minifyEnabled true` in your *android/app/build.gradle* file, open the *android/unityLibraryCustom/proguard-unity.txt* and change the following:
 
 ```diff
 +    -keep class com.xraph.plugin.** {*;}
@@ -203,7 +203,7 @@ option (will export to *ios/UnityLibrary*).
  <summary>:information_source: <b>iOS</b></summary>
   
   6.1. Open the *ios/Runner.xcworkspace* (workspace, not the project) file in Xcode, right-click on the Navigator (not on an item), go to **Add Files to "Runner"** and add
-  the *ios/UnityLibrary/Unity-Iphone.xcodeproj* file.
+  the *ios/unityLibraryCustom/Unity-Iphone.xcodeproj* file.
   
   <img src="files/workspace.png" width="400" />
   
@@ -274,9 +274,9 @@ option (will export to *ios/UnityLibrary*).
 
   7. Open the *lib/__architecture__/* folder and check if there are both *libUnityARCore.so* and *libarpresto_api.so* files.
   There seems to be a bug where a Unity export does not include all lib files. If they are missing, use Unity to build a standalone .apk
-  of your AR project, unzip the resulting apk, and copy over the missing .lib files to the `unityLibrary` module. 
+  of your AR project, unzip the resulting apk, and copy over the missing .lib files to the `unityLibraryCustom` module. 
   
-  8. Repeat steps 6.1 and 6.2 for Android, replacing `unityLibrary` with `arcore_client`, `unityandroidpermissions` and `UnityARCore`.
+  8. Repeat steps 6.1 and 6.2 for Android, replacing `unityLibraryCustom` with `arcore_client`, `unityandroidpermissions` and `UnityARCore`.
   
   9. When using `UnityWidget` in Flutter, set `fullscreen: false` to disable fullscreen.
 
@@ -300,7 +300,7 @@ option (will export to *ios/UnityLibrary*).
 
 Thanks to [@PiotrxKolasinski](https://github.com/PiotrxKolasinski) for writing down the exact steps:
 
-7. Open the *android/unityLibrary/build.gradle* file and change the following: 
+7. Open the *android/unityLibraryCustom/build.gradle* file and change the following: 
 
 ```diff
 -    implementation(name: 'VuforiaWrapper', ext: 'aar')
@@ -311,10 +311,10 @@ Thanks to [@PiotrxKolasinski](https://github.com/PiotrxKolasinski) for writing d
     new project will open.
     
 > Don't worry if the error message "Project with path ':VuforiaWrapper' could not be 
-> found in project ':unityLibrary'" appears. The next step will fix it.
+> found in project ':unityLibraryCustom'" appears. The next step will fix it.
 
 9. In this new project window, go to **File > New > New Module > Import .JAR/.AAR package**
-    and select the *android/unityLibrary/libs/VuforiaWrapper.aar* file. A new folder
+    and select the *android/unityLibraryCustom/libs/VuforiaWrapper.aar* file. A new folder
     named *VuforiaWrapper* will be created inside *android/*. You can now close this
     new project window.
 
@@ -418,7 +418,7 @@ e: .../FlutterUnityWidgetFactory.kt: (13, 58): Expecting a parameter declaration
 **Error:**
 
 ```
-Unable to find a matching variant of project :unityLibrary:
+Unable to find a matching variant of project :unityLibraryCustom:
 ```
 
 **Solution:**
@@ -683,7 +683,7 @@ Flutter on default doesn't support `--flavor` for building web. But you can set 
  - Project fails to build due to some native dependencies in your unity project, please integrate the native libraries for those dependencies on Android or iOS
  - App crashes on screen exit and re-entry do this
    > Build Setting - iOS - Other Settings - Configuration - Enable Custom Background Behaviors or iOS
- - Android builds takes forever to complete Unity 2022.1.*, remove these lines from unityLibrary/build.gradle file
+ - Android builds takes forever to complete Unity 2022.1.*, remove these lines from unityLibraryCustom/build.gradle file
    > commandLineArgs.add("--enable-debugger")
    > commandLineArgs.add("--profiler-report")
    > commandLineArgs.add("--profiler-output-file=" + workingDir + "/build/il2cpp_"+ abi + "_" + configuration + "/il2cpp_conv.traceevents")
